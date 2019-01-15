@@ -10,7 +10,8 @@
 
 int main()
 {
-    printf("Tag des Jahres: %i\n", day_of_the_year(12, 01, 2018));
+    printf("Keine fuehrende Nullen!");
+    printf("Tag des Jahres: %i\n", day_of_the_year(1, 8, 2018));
 
     return 0;
 }

@@ -29,9 +29,9 @@ int isLeapyear(int year){
     return leapyearBool;
 }
 
-///
-///
-///
+/// Die Funktion berechnet für ein gegebenes Datum des gregorianischen Kalenders bestehend aus Tag, Monat
+///und Jahr die Nummer des Tages, gezählt von Jahresbeginn (1. Januar) an. Schaltjahre werden bei der
+///Berechnung berücksichtigt. Ist das übergebene Datum ungültig, beträgt der Rückgabewert -1.
 int day_of_the_year(int day, int month, int year)
 {
     int countDays = 0;
@@ -41,11 +41,16 @@ int day_of_the_year(int day, int month, int year)
         for(int i = 1; i < month; i++ ){
             countDays += get_days_for_month(i, year);
         }
+
+        countDays += day;
+        // Rüchgabe Tag des Jahres
+        return countDays;
+    }else {
+        printf("Ungueltiges Datum \n");
+        return -1;
     }
 
-    countDays += day;
 
-    return countDays;
 }
 
 
@@ -64,7 +69,10 @@ int get_days_for_month(int month, int year){
     if(exists_date(01, month, year) == 1) {
 
         if(isLeapyear(year) == 1){
-            daysInMonth[2] = 29;
+            if(month == 2){
+                return 29;
+            }
+
         }
         return daysInMonth[month];
     } else {
@@ -73,12 +81,12 @@ int get_days_for_month(int month, int year){
 }
 
 
-///
-///
-///
+///Die Funktion überprüft, ob ein eingegebenes Datum gültig ist. Daten vor dem 1.1.1582 sind ungültig, genauso
+///wie alle Daten nach dem 31.12.2400.
+/// return: 1 for valid Date and 0 for not valid Date
 int exists_date(int day, int month, int year){
 
-    if(day < 1 || day > 31){
+    if((day < 1) || (day > 31)){
         return 0;
     } else if(month < 1 || month > 12){
         return 0;
