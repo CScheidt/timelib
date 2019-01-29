@@ -1,9 +1,13 @@
 # depslib dependency file v1.0
-1547545058 source:/home/christian/Dokumente/schulprojekt/timelib/time.c
+1548754241 source:/home/christian/Dokumente/schulprojekt/timelib/time.c
 	<stdio.h>
 	<stdlib.h>
+	"time.h"
 
-1547544946 source:/home/christian/Dokumente/schulprojekt/timelib/main.c
+1548753967 source:/home/christian/Dokumente/schulprojekt/timelib/main.c
 	<stdio.h>
 	<stdlib.h>
+	"time.h"
+
+1548754090 /home/christian/Dokumente/schulprojekt/timelib/time.h
 

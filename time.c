@@ -1,14 +1,15 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include "time.h"
 
-///  Die Funktion �berpr�ft, ob ein eingegebenes Jahr nach den Regeln des gregorianischen
-///  Kalendar ein Schaltjahr ist. Bei Jahreszahlen vor dem 1952 wird ein Fehler zur�ckgegeben.
+///  Die Funktion Ueberprueft, ob ein eingegebenes Jahr nach den Regeln des gregorianischen
+///  Kalendar ein Schaltjahr ist. Bei Jahreszahlen vor dem 1952 wird ein Fehler zurueckgegeben.
 ///  @params year: int
 int isLeapyear(int year){
 
     int leapyearBool = 0;
 
-    if (year < 1582 || year > 2400){
+    if ((year < 1582) || (year > 2400)){
         return -1;
     }
 
@@ -29,11 +30,28 @@ int isLeapyear(int year){
     return leapyearBool;
 }
 
+///Die Funktion liest 3 Ganzzahlwerte ein, Tag, Monat und Jahr. Wenn das angegebene Datum ungueltig ist,
+///wird erneut eingelesen, solange bis ein gültiges Datum eingegeben wurde.
+///param
+void input_date(int *day, int *month, int *year){
+
+    do{
+        printf("Keine fuehrende Nullen!\n Tag: ");
+        scanf("%i", day);
+
+        printf("\n Monat: ");
+        scanf("%i", month);
+
+        printf("\n Jahr: ");
+        scanf("%i", year);
+
+    }while(exists_date(*day, *month, *year) == 0);
+}
+
 /// Die Funktion berechnet für ein gegebenes Datum des gregorianischen Kalenders bestehend aus Tag, Monat
 ///und Jahr die Nummer des Tages, gezählt von Jahresbeginn (1. Januar) an. Schaltjahre werden bei der
 ///Berechnung berücksichtigt. Ist das übergebene Datum ungültig, beträgt der Rückgabewert -1.
-int day_of_the_year(int day, int month, int year)
-{
+int day_of_the_year(int day, int month, int year){
     int countDays = 0;
 
     if(exists_date(day, month, year) == 1){
@@ -54,13 +72,8 @@ int day_of_the_year(int day, int month, int year)
 }
 
 
-void input_date(){
-
-}
-
-
 /// Die Funktion bestimmt f�r einen gegebenen Monat eines gegebenes Jahres, wie viele Tage der Monat hat.
-/// der Wert des Monats muss zwischen 1 und 12 liegen. Schaltjahre werden ber�cksichtigt.
+/// der Wert des Monats muss zwischen 1 und 12 liegen. Schaltjahre werden beruecksichtigt.
 /// @params month: int, year: int
 int get_days_for_month(int month, int year){
 
@@ -81,7 +94,7 @@ int get_days_for_month(int month, int year){
 }
 
 
-///Die Funktion überprüft, ob ein eingegebenes Datum gültig ist. Daten vor dem 1.1.1582 sind ungültig, genauso
+///Die Funktion ueberprueft, ob ein eingegebenes Datum gueltig ist. Daten vor dem 1.1.1582 sind ungueltig, genauso
 ///wie alle Daten nach dem 31.12.2400.
 /// return: 1 for valid Date and 0 for not valid Date
 int exists_date(int day, int month, int year){
