@@ -4,7 +4,7 @@
 
 ///  Die Funktion Ueberprueft, ob ein eingegebenes Jahr nach den Regeln des gregorianischen
 ///  Kalendar ein Schaltjahr ist. Bei Jahreszahlen vor dem 1952 wird ein Fehler zurueckgegeben.
-///  @params year: int
+/// return: 1 Schaltjahr, 0 kein Schaltjahr, -1 ungueltiges Datum
 int isLeapyear(int year){
 
     int leapyearBool = 0;
@@ -32,7 +32,6 @@ int isLeapyear(int year){
 
 ///Die Funktion liest 3 Ganzzahlwerte ein, Tag, Monat und Jahr. Wenn das angegebene Datum ungueltig ist,
 ///wird erneut eingelesen, solange bis ein gültiges Datum eingegeben wurde.
-///param
 void input_date(int *day, int *month, int *year){
 
     do{
@@ -51,6 +50,7 @@ void input_date(int *day, int *month, int *year){
 /// Die Funktion berechnet für ein gegebenes Datum des gregorianischen Kalenders bestehend aus Tag, Monat
 ///und Jahr die Nummer des Tages, gezählt von Jahresbeginn (1. Januar) an. Schaltjahre werden bei der
 ///Berechnung berücksichtigt. Ist das übergebene Datum ungültig, beträgt der Rückgabewert -1.
+///return: Alles Tage bis zum angegebenen Datum
 int day_of_the_year(int day, int month, int year){
     int countDays = 0;
 
@@ -72,9 +72,9 @@ int day_of_the_year(int day, int month, int year){
 }
 
 
-/// Die Funktion bestimmt f�r einen gegebenen Monat eines gegebenes Jahres, wie viele Tage der Monat hat.
+/// Die Funktion bestimmt fuer einen gegebenen Monat eines gegebenes Jahres, wie viele Tage der Monat hat.
 /// der Wert des Monats muss zwischen 1 und 12 liegen. Schaltjahre werden beruecksichtigt.
-/// @params month: int, year: int
+/// return: 1-31 Anzahl Tage; -1  ungueltiges Datum
 int get_days_for_month(int month, int year){
 
     int daysInMonth[14] = {0, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31, 0};
