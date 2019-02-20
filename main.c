@@ -10,15 +10,14 @@
 #include "time.h"
 
 int main(){
-    int day;
-    int month;
-    int year;
+
+    struct date datum;
 
     //Eingabe bis korrektes Datum  eingegeben wurde.
-    input_date(&day, &month, &year);
+    datum = input_date(datum);
 
     //Rueckgabe der Anzahl der Tage vom angegebenen Datum
-    printf("Anzahl Tage: %i \n", day_of_the_year(day, month, year));
+    printf("Anzahl Tage: %i \n", day_of_the_year(datum));
 
     return 0;
 }

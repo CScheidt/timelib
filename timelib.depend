@@ -11,3 +11,15 @@
 
 1548754090 /home/christian/Dokumente/schulprojekt/timelib/time.h
 
+1550698130 source:d:\timelib\main.c
+	<stdio.h>
+	<stdlib.h>
+	"time.h"
+
+1550697980 d:\timelib\time.h
+
+1550698062 source:d:\timelib\time.c
+	<stdio.h>
+	<stdlib.h>
+	"time.h"
+
