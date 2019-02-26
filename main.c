@@ -1,8 +1,8 @@
 /**
  * Author: Christian Scheidt
  * Date: 07.01.2019
- * Content: erechnet fuer ein gegebenes Datum des gregorianischen Kalenders bestehend aus Tag, Monat
- * und Jahr die Nummer des Tages, gezaehlt von Jahresbeginn (1. Januar) an.
+ * Summary: Reads a date and returns the days until given date. Uses time.c library
+ * Last modified: 26.02.2019
  **/
 
 #include <stdio.h>
@@ -11,13 +11,13 @@
 
 int main(){
 
-    struct date datum;
+    struct date given_date;
 
-    //Eingabe bis korrektes Datum  eingegeben wurde.
-    datum = input_date(datum);
+    //Eingabe bis korrektes given_date  eingegeben wurde.
+    given_date = input_date(given_date);
 
-    //Rueckgabe der Anzahl der Tage vom angegebenen Datum
-    printf("Anzahl Tage: %i \n", day_of_the_year(datum));
+    //Rueckgabe der Anzahl der Tage vom angegebenen given_date
+    printf("Anzahl Tage: %i \n", day_of_the_year(given_date));
 
     return 0;
 }
